@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Threading;
 
 namespace WebAppSample.Controllers
 {
@@ -33,5 +34,17 @@ namespace WebAppSample.Controllers
             else
                 return View(10);
         }
+
+        public IActionResult SlowPage()
+        {
+            var data = DateTime.Now;
+
+            while (DateTime.Now.Subtract(data).TotalSeconds < 10)
+                Thread.Sleep(100);
+
+
+            return View();
+        }
+
     }
 }
