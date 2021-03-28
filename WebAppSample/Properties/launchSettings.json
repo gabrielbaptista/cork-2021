@@ -12,9 +12,9 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "api": "SendEmail?code=noKasajm2TK4OPLpeEXXNQfBr9D1mE2z8l7qncUbY83ZwZin8hpd/w==",
+        "api": "SendEmail?code=[YOUR-API-CODE]",
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "apiURL": "https://dnc-functions.azurewebsites.net/api/"
+        "apiURL": "[YOUR-API-URL]"
       }
     },
     "WebAppSample": {
