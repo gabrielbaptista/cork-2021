@@ -4,8 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
+using WebAppSample.Helper;
 using WebAppSample.Models;
+using WebAppSample.TOs;
 
 namespace WebAppSample.Controllers
 {
@@ -39,5 +42,22 @@ namespace WebAppSample.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Email()
+        {
+            string apiUrl = Environment.GetEnvironmentVariable("apiUrl"); 
+            string api = Environment.GetEnvironmentVariable("api");
+            WebHelper.SetApiUrl(apiUrl);
+            await WebHelper.CallApi(HttpMethod.Post, api, GenerateObject());
+            return View("Index");
+        }
+
+        private EmailData GenerateObject()
+        {
+            EmailData emailData = new EmailData();
+            emailData.To = "gabriel@smit.net.br";
+            emailData.Subject = "App Insights Sample";
+            emailData.Body = "Check how these things work together!";
+            return emailData;
+        }
     }
 }
