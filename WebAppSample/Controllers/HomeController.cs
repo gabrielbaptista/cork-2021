@@ -48,7 +48,7 @@ namespace WebAppSample.Controllers
             string api = Environment.GetEnvironmentVariable("api");
             WebHelper.SetApiUrl(apiUrl);
             await WebHelper.CallApi(HttpMethod.Post, api, GenerateObject());
-            return View("Index");
+            return View();
         }
 
         private EmailData GenerateObject()
